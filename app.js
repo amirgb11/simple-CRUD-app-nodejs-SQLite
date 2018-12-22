@@ -7,6 +7,7 @@ var port = process.env.PORT || 8000;
 
 var models = require("./models");
 var client = require('./routes/client');
+var car = require('./routes/car');
 
 
 models.sequelize.sync().then(function() {
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.use('/client', client);
+app.use('/car', car);
 
 
 app.get('/', function(req, res){
